@@ -7,13 +7,8 @@ type PropsType = {
 const DeviceFrameSkeleton = ({ style }: PropsType) => {
   return (
     <div
-      className="absolute origin-center
-   rounded-[36px]
-   overflow-hidden shadow-sm ring
-  "
+      className="absolute origin-center overflow-hidden shadow-sm ring"
       style={{
-        width: 420,
-        height: 800,
         background: "#fff",
         ...style,
       }}

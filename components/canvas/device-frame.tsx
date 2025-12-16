@@ -9,6 +9,7 @@ import { getHTMLWrapper } from "@/lib/frame-wrapper";
 import { cn } from "@/lib/utils";
 import DeviceFrameToolbar from "./device-frame-toolbar";
 import { toast } from "sonner";
+import DeviceFrameSkeleton from "./device-frame-skeleton";
 
 type PropsType = {
   html: string;
@@ -20,6 +21,7 @@ type PropsType = {
   scale?: number;
   toolMode: ToolModeType;
   theme_style?: string;
+  isLoading?: boolean;
   onOpenHtmlDialog: () => void;
 };
 const DeviceFrame = ({
@@ -32,6 +34,7 @@ const DeviceFrame = ({
   scale = 1,
   toolMode,
   theme_style,
+  isLoading = false,
   onOpenHtmlDialog,
 }: PropsType) => {
   const { selectedFrameId, setSelectedFrameId } = useCanvas();
@@ -148,7 +151,7 @@ const DeviceFrame = ({
         <DeviceFrameToolbar
           title={title}
           isSelected={isSelected && toolMode !== TOOL_MODE_ENUM.HAND}
-          disabled={isDownloading}
+          disabled={isDownloading || isLoading}
           isDownloading={isDownloading}
           onDownloadPng={handleDownloadPng}
           onOpenHtmlDialog={onOpenHtmlDialog}
@@ -157,26 +160,36 @@ const DeviceFrame = ({
         <div
           className={cn(
             `relative w-full h-auto shadow-sm
-           rounded-[36px] overflow-hidden
-          `,
+              rounded-[36px] overflow-hidden
+              `,
             isSelected && toolMode !== TOOL_MODE_ENUM.HAND && "rounded-none"
           )}
         >
-          <iframe
-            ref={iframeRef}
-            srcDoc={fullHtml}
-            title={title}
-            sandbox="allow-scripts allow-same-origin"
-            style={{
-              width: "100%",
-              minHeight: `${minHeight}px`,
-              height: `${frameSize.height}px`,
-              border: "none",
-              pointerEvents: "none",
-              display: "block",
-              background: "white",
-            }}
-          />
+          {isLoading ? (
+            <DeviceFrameSkeleton
+              style={{
+                position: "relative",
+                width,
+                height: minHeight,
+              }}
+            />
+          ) : (
+            <iframe
+              ref={iframeRef}
+              srcDoc={fullHtml}
+              title={title}
+              sandbox="allow-scripts allow-same-origin"
+              style={{
+                width: "100%",
+                minHeight: `${minHeight}px`,
+                height: `${frameSize.height}px`,
+                border: "none",
+                pointerEvents: "none",
+                display: "block",
+                background: "white",
+              }}
+            />
+          )}
         </div>
       </div>
     </Rnd>
