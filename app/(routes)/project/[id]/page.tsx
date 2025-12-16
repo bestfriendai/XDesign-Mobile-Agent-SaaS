@@ -11,10 +11,10 @@ const Page = () => {
   const id = params.id as string;
 
   const { data: project, isPending } = useGetProjectById(id);
-  const frames = project?.frames || [];
-  const themeId = project?.theme || "";
+  // const frames = project?.frames || [];
+  // const themeId = project?.theme || "";
 
-  const hasInitialData = frames.length > 0;
+  const hasInitialData = project?.frames.length > 0;
 
   if (!isPending && !project) {
     return <div>Project not found</div>;
@@ -29,8 +29,8 @@ const Page = () => {
       <Header projectName={project?.name} />
 
       <CanvasProvider
-        initialFrames={frames}
-        initialThemeId={themeId}
+        initialFrames={project?.frames}
+        initialThemeId={project?.theme}
         hasInitialData={hasInitialData}
         projectId={project?.id}
       >

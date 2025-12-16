@@ -42,7 +42,7 @@ const Canvas = ({
   return (
     <>
       <div className="relative w-full h-full overflow-hidden">
-        <CanvasFloatingToolbar />
+        <CanvasFloatingToolbar projectId={projectId} />
 
         {currentStatus && <CanvasLoader status={currentStatus} />}
 
@@ -105,7 +105,9 @@ const Canvas = ({
                           <DeviceFrameSkeleton
                             key={index}
                             style={{
-                              transform: `translate(${baseX}px 100px)`,
+                              //transform: `translate(${baseX}px, ${y}px)`,
+                              left: baseX,
+                              top: y,
                             }}
                           />
                         );
@@ -128,7 +130,7 @@ const Canvas = ({
                       );
                     })}
                   </div>
-                  <DeviceFrame
+                  {/* <DeviceFrame
                     frameId="demo"
                     title="Demo Screen"
                     html={DEMO_HTML}
@@ -140,7 +142,7 @@ const Canvas = ({
                     toolMode={toolMode}
                     theme_style={theme?.style}
                     onOpenHtmlDialog={onOpenHtmlDialog}
-                  />
+                  /> */}
                 </TransformComponent>
               </div>
 
@@ -157,7 +159,8 @@ const Canvas = ({
       </div>
 
       <HtmlDialog
-        html={selectedFrame?.htmlContent || DEMO_HTML}
+        html={selectedFrame?.htmlContent || ""}
+        title={selectedFrame?.title}
         theme_style={theme?.style}
         open={openHtmlDialog}
         onOpenChange={setOpenHtmlDialog}

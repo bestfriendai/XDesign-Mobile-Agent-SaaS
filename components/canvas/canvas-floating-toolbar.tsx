@@ -10,10 +10,30 @@ import { parseThemeColors } from "@/lib/themes";
 import ThemeSelector from "./theme-selector";
 import { Separator } from "../ui/separator";
 import { Button } from "../ui/button";
+import {
+  useGenerateDesignById,
+  useUpdateProject,
+} from "@/features/use-project-id";
+import { Spinner } from "../ui/spinner";
 
-const CanvasFloatingToolbar = () => {
+const CanvasFloatingToolbar = ({ projectId }: { projectId: string }) => {
   const { themes, theme: currentTheme, setTheme } = useCanvas();
   const [promptText, setPromptText] = useState<string>("");
+
+  const { mutate, isPending } = useGenerateDesignById(projectId);
+
+  const update = useUpdateProject(projectId);
+
+  const handleAIGenerate = () => {
+    if (!promptText) return;
+    mutate(promptText);
+  };
+
+  const handleUpdate = () => {
+    if (!currentTheme) return;
+    update.mutate(currentTheme.id);
+  };
+
   return (
     <div
       className="
@@ -52,14 +72,16 @@ const CanvasFloatingToolbar = () => {
                 hideSubmitBtn={true}
               />
               <Button
+                disabled={isPending}
                 className="mt-2 w-full
                   bg-linear-to-r
                  from-purple-500 to-indigo-600
                   text-white rounded-2xl
                   shadow-lg shadow-purple-200/50 cursor-pointer
                 "
+                onClick={handleAIGenerate}
               >
-                Design
+                {isPending ? <Spinner /> : <>Design</>}
               </Button>
             </PopoverContent>
           </Popover>
@@ -125,9 +147,16 @@ const CanvasFloatingToolbar = () => {
               variant="default"
               size="sm"
               className="rounded-full cursor-pointer"
+              onClick={handleUpdate}
             >
-              <Save className="size-4" />
-              Save
+              {update.isPending ? (
+                <Spinner />
+              ) : (
+                <>
+                  <Save className="size-4" />
+                  Save
+                </>
+              )}
             </Button>
           </div>
         </div>
