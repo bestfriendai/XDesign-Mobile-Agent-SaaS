@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎨 XDesign AI – AI Mobile Design Agent
 
-## Getting Started
+> This code, whether in parts or whole, is licensed for commercial use **only with a license**. It is **free for personal use**.
+> 👉 [Get a Commercial License](https://techwithemma.gumroad.com/l/gaeytu) and 👉 [here to learn more](https://github.com/TechWithEmmaYT/XDesign-Mobile-Agent-SaaS/blob/main/TECHWITHEMMA-LICENSE.md)
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ❤️ Support the Channel
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+If this project helps you, you can support my work by:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- ☕ [Buy Me a Coffee](https://dub.sh/buy-me-coffee)
+- 🎥 [Subscribe on YouTube](https://dub.sh/subcribe-to-channel)
+- 🌟 Starring this repository
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📺 Watch the Full Build on YouTube
 
-To learn more about Next.js, take a look at the following resources:
+> In this video, you’ll build an AI-powered mobile design agent from scratch, covering architecture, AI workflows, canvas rendering, Png exports, and deployment.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+👉 [Watch the Course](https://www.youtube.com/watch?v=o3IqOrXtxm8)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🗝️ Key Features 👇
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- 🔐 Authentication with **Kinde**
+- 🤖 AI-powered mobile UI design agent
+- ✍️ Generate clean mobile designs from simple prompts
+- 🖼️ Draggable mobile canvas (real device feel)
+- 🎨 Customizable themes
+- 🔁 Regenerate designs instantly
+- 📸 Export designs as PNG
+- 🌄 Unsplash integration for real images
+- ⚡ Real-time design updates
+- 🌐 Built with **Next.js**
+- 🗄️ **MongoDB + Prisma** for persistence
+- 🪝 Background workflows with **Inngest**
+- 🎨 Styled with **Tailwind CSS**
+- 🚀 Production-ready architecture
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📜 License Information
+
+Commercial use requires a paid license.
+👉 [Get a Commercial License](https://techwithemma.gumroad.com/l/gaeytu)
+
+For more details about license, please refer to the [TECHWITHEMMA-LICENSE.md](https://github.com/TechWithEmmaYT/XDesign-Mobile-Agent-SaaS/blob/main/TECHWITHEMMA-LICENSE.md).
+
+---
+
+## 📺 Subscribe for More Projects
+
+I build real-world SaaS, AI agents, and production-grade systems.
+
+🔔 Subscribe here:
+👉 [https://dub.sh/subcribe-to-channel](https://dub.sh/subcribe-to-channel)

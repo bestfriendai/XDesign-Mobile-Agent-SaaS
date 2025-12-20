@@ -148,7 +148,7 @@ const Canvas = ({
 
   const currentStatus = isSaving
     ? "finalizing"
-    : isPending && (loadingStatus === null || loadingStatus !== "idle")
+    : isPending && (loadingStatus === null || loadingStatus === "idle")
     ? "fetching"
     : loadingStatus !== "idle" && loadingStatus !== "completed"
     ? loadingStatus

@@ -163,8 +163,6 @@ export const generateScreens = inngest.createFunction(
         .map((f: FrameType) => `<!-- ${f.title} -->\n${f.htmlContent}`)
         .join("\n\n");
 
-      console.log(previousFramesContext, "previousFramesContext");
-
       await step.run(`generated-screen-${i}`, async () => {
         const result = await generateText({
           model: "google/gemini-3-pro-preview",

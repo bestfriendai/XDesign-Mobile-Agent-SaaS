@@ -1,5 +1,7 @@
 import { BASE_VARIABLES, THEME_LIST } from "./themes";
 
+//MADE AN UPDATE HERE AND IN THE generateScreens.ts AND regenerateFrame.ts 🙏Check it out...
+
 export const GENERATION_SYSTEM_PROMPT = `
 You are an elite mobile UI/UX designer creating Dribbble-quality HTML screens using Tailwind and CSS variables.
 
